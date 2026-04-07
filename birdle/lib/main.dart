@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:birdle/game.dart';
 
 void main() {
   runApp(const MainApp());
@@ -12,7 +13,36 @@ class MainApp extends StatelessWidget {
     return const MaterialApp(
       home: Scaffold(
         body: Center(
-          child: Text('Olá, Mundo!'),
+          child: Tile('A', HitType.partial),
+        ),
+      ),
+    );
+  }
+}
+class Tile extends StatelessWidget {
+  const Tile(this.letter, this.hitType, {super.key});
+
+  final String letter;
+  final HitType hitType;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 60,
+      height: 60,
+      decoration: BoxDecoration(
+        border: Border.all(color: const Color.fromARGB(255, 224, 224, 224)),
+        color: switch(hitType){
+          HitType.hit => Colors.greenAccent,
+          HitType.partial => Colors.amberAccent,
+          HitType.miss => Colors.green,
+          _ => Colors.white,
+        }
+      ),
+      child: Center(
+        child: Text(
+          letter.toUpperCase(),
+          style: Theme.of(context).textTheme.titleLarge,
         ),
       ),
     );
