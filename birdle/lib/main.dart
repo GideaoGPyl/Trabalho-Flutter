@@ -31,7 +31,9 @@ class Tile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 500),
+      curve: Curves.bounceIn,
       width: 60,
       height: 60,
       decoration: BoxDecoration(
@@ -41,7 +43,7 @@ class Tile extends StatelessWidget {
           HitType.partial => Colors.amberAccent,
           HitType.miss => Colors.green,
           _ => Colors.white,
-        }
+        },
       ),
       child: Center(
         child: Text(
@@ -142,7 +144,7 @@ class GuessInput extends StatelessWidget {
   }
 }
 
-class Example extends StatefulWidget {
+class ExampleWidget extends StatefulWidget {
   ExampleWidget({super.key});
 
   @override
