@@ -75,3 +75,5 @@ class GamePage extends StatelessWidget {
     );
   }
 }
+
+//Comentário pois a etapa do devtool não tem comit
